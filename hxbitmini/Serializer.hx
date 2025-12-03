@@ -442,7 +442,7 @@ class Serializer {
 			addByte(0);
 			return;
 		}
-		var c : Serializable = Std.is(s, Serializable) ? cast s : null;
+		var c : Serializable = Std.isOfType(s, Serializable) ? cast s : null;
 		if( c != null ) {
 			addByte(1);
 			addAnyRef(c);
