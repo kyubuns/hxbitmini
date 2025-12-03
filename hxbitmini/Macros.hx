@@ -560,7 +560,7 @@ class Macros {
 			ul.push(withPos(macro hxbitmini.Macros.unserializeValue(__ctx, $ef),f.f.pos));
 		}
 
-		var noCompletion = [{ name : ":noCompletion", pos : pos }];
+		var metadata = [{ name : ":noCompletion", pos : pos },{ name : ":keep", pos : pos }];
 		var access = [APublic];
 		if( isSubSer )
 			access.push(AOverride);
@@ -570,21 +570,21 @@ class Macros {
 			name : "__clid",
 			pos : pos,
 			access : [AStatic],
-			meta : noCompletion,
+			meta : metadata,
 			kind : FVar(macro : Int, macro 0),
 		});
 		fields.push({
 			name : "initCLID",
 			pos : pos,
 			access : [AStatic, APublic],
-			meta : noCompletion,
+			meta : metadata,
 			kind : FFun({ args : [], ret : null , expr : macro __clid = @:privateAccess hxbitmini.Serializer.registerClass($p{clName}) }),
 		});
 		fields.push({
 			name : "getCLID",
 			pos : pos,
 			access : access,
-			meta : noCompletion,
+			meta : metadata,
 			kind : FFun({ args : [], ret : macro : Int, expr : macro return __clid }),
 		});
 
@@ -596,7 +596,7 @@ class Macros {
 				name : "doSerialize",
 				pos : pos,
 				access : [AStatic],
-				meta : noCompletion,
+				meta : metadata,
 				kind : FFun({
 					args : [ { name : "__ctx", type : macro : hxbitmini.Serializer }, { name : "__this", type : TPath({ pack : [], name : cl.name }) } ],
 					ret : null,
@@ -625,7 +625,7 @@ class Macros {
 				name : "getSerializeSchema",
 				pos : pos,
 				access : access,
-				meta : noCompletion,
+				meta : metadata,
 				kind : FFun({
 					args : [],
 					ret : null,
@@ -643,7 +643,7 @@ class Macros {
 			fields.push({
 				name : "unserializeInit",
 				pos : pos,
-				meta : noCompletion,
+				meta : metadata,
 				access : access,
 				kind : FFun({
 					args : [],
@@ -686,7 +686,7 @@ class Macros {
 				name : "doUnserialize",
 				pos : pos,
 				access : [AStatic],
-				meta : noCompletion,
+				meta : metadata,
 				kind : FFun({
 					args : [ { name : "__ctx", type : macro : hxbitmini.Serializer }, { name : "__this", type : TPath({ pack : [], name : cl.name }) } ],
 					ret : null,
