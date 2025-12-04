@@ -812,8 +812,8 @@ class Macros {
 						}),
 					},{
 						name : "serialize",
-						access : [AInline, APublic],
-						meta : [{name:":extern",pos:pos}],
+						access : [AInline, APublic, AExtern],
+						meta : [],
 						pos : pos,
 						kind : FFun( {
 							args : [{ name : "ctx", type : macro : hxbitmini.Serializer },{ name : "v", type : pt.toComplexType() }],
@@ -822,8 +822,8 @@ class Macros {
 						}),
 					},{
 						name : "unserialize",
-						access : [AInline, APublic],
-						meta : [{name:":extern",pos:pos}],
+						access : [AInline, APublic, AExtern],
+						meta : [],
 						pos : pos,
 						kind : FFun( {
 							args : [{ name : "ctx", type : macro : hxbitmini.Serializer }],
